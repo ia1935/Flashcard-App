@@ -1,4 +1,2 @@
 # Ignore database files
-database.db
-db/
-*.sqlite
+flashcards.db
