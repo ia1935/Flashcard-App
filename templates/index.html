@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset ="UTF-8">
+        <meta name ="viewport" content="width=device-width,initial-scale = 1.0">
+        <title>Flashcards</title>
+    </head>
+    <body>
+        <h1>Flashcards</h1>
+        <a href = "{{url_for('add_flashcard')}}">Add New Flashcard</a>
+        <ul>
+            {% for flashcard in flashcards%}
+            <li>
+                <strong>Question</strong>{{flashcard['question']}}<br>
+                <strong>Answer</strong>{{flashcard['answer']}}
+            </li>
+
+            {%endfor%}
+        </ul>
+    </body>
+</html>
