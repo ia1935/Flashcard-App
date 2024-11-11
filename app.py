@@ -34,5 +34,15 @@ def add_flashcard():
 
     return render_template('add_flashcard.html')
 
+
+@app.route('/delete/<int:card_id>')
+def delete_flashcard(card_id):
+    conn = get_db_connection()
+    conn.execute('delete from flashcards where id=?',(card_id,))
+    conn.commit()
+    conn.close()
+
+    return redirect(url_for('index'))
+
 if __name__ == "__main__":
     app.run(debug=True)
