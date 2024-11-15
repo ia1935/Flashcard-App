@@ -3,23 +3,25 @@
 <head>
     <meta charset ="UTF-8">
     <meta name ="viewport" content="width=device-width,initial-scale = 1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
     <title>Flashcards</title>
 </head>
 <body>
     <h1>Flashcards</h1>
     <a href = "{{url_for('add_flashcard')}}">Add New Flashcard</a>
-    <ul>
+    <div class = "flashcards-container">
         {% for flashcard in flashcards%}
-        <li>
-            <strong>Question</strong>{{flashcard['question']}}<br>
-            <strong>Answer</strong>{{flashcard['answer']}}
-            <div>
-            <a href="{{ url_for('delete_flashcard', card_id=flashcard['id']) }}" onclick="return confirmDelete();">Delete</a> 
-            </div>               
-        </li>
+        <div class = "flashcard" onclick = "toggleAnswer(this)">
+            <div class="question">{{ flashcard['question'] }}</div>
+            <div class="answer" style="display: none;">Answer: {{ flashcard['answer'] }}</div>
+                          
+        </div>
+        <div class = "delete_flashcard">
+        <a href="{{ url_for('delete_flashcard', card_id=flashcard['id']) }}" onclick="return confirmDelete();">Delete</a> 
+        </div>
 
         {%endfor%}
-    </ul>
+    </div>
 
     <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </body>
