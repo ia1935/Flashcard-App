@@ -11,7 +11,7 @@ c = conn.cursor()
 c.execute('''
           create table flashcards(id integer primary key autoincrement, 
           question text not null,
-          answer text not null)
+          answer text not null, category text default 'Miscellaneous')
           
           
           ''')
