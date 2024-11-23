@@ -35,6 +35,36 @@ def add_flashcard():
     return render_template('add_flashcard.html')
 
 
+#route to edit flashcard
+@app.route('/edit/<int:card_id>',methods=['GET','POST'])
+def edit_flashcard(card_id):
+
+    #connect to db
+    conn = get_db_connection()
+
+    #get the data matching the card_id
+    flashcard = conn.execute('select * from flashcards where id=?',(card_id,)).fetchone()
+
+    #no flashcard found handling
+    if flashcard is None:
+        return "Flashcard not found", 404
+    
+    #store edit info from dropdown
+    if request.method == 'POST':
+        updated_question = request.form['question']
+        updated_answer = request.form['answer']
+
+        #execute command to enter new values question, answer in the id location
+        conn.execute('update flashcards set question = ?, answer = ? where id = ?',
+                     (updated_question, updated_answer, card_id))  
+        conn.commit()
+        conn.close()
+        return redirect(url_for('index')) #return to homepage after updating
+
+    conn.close()
+    return render_template('edit_flashcard.html', flashcard=flashcard)
+
+
 @app.route('/delete/<int:card_id>')
 def delete_flashcard(card_id):
     conn = get_db_connection()

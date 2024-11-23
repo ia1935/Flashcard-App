@@ -12,7 +12,7 @@
     <div class = "flashcards-container">
         {% for flashcard in flashcards%}
         <div class = "flashcard" onclick = "toggleAnswer(this)">
-            <div class="question">{{ flashcard['question'] }}</div>
+            <div class="question"><a href="{{url_for('edit_flashcard',card_id=flashcard['id'])}}">{{ flashcard['question'] }}</a></div>
             <div class="answer" style="display: none;">Answer: {{ flashcard['answer'] }}</div>
                           
         </div>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset ="UTF-8">
+    <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <title>Edit Flashcard</title>
+</head>
+<body>
+    <h1>Edit Flashcard</h1>
+    <!-- making method that will let user submit form that will sent to backend (flask) for processing -->
+    <form method="POST">
+        <label for="question">Question:</label>
+        <input type="text" id="question" name="question" value="{{flashcard['question']}}" required>
+        <br><br>
+        <label for="answer">Answer:</label>
+        <input type="text" id="answer" name="answer" value="{{flashcard['answer']}}" required>
+        <br><br>
+        <button type="submit">Update Flashcard</button>
+    </form>
+    <a href="{{url_for('index')}}">Back To Home</a>
+</body>
+
+
+
+
+
+
+
+</html>
