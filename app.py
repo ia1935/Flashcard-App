@@ -15,7 +15,15 @@ def index():
     conn = get_db_connection()
     flashcards = conn.execute('SELECT * FROM flashcards').fetchall()
     conn.close()
-    return render_template('index.html', flashcards=flashcards)
+    #sorting by group (categories)
+    categories ={}
+    for card in flashcards:
+        if card['category'] not in categories:
+            categories[card['category']] = []
+        categories[card['category']].append(card)
+
+
+    return render_template('index.html', categories=categories)
 
 # Route for adding a new flashcard
 @app.route('/add', methods=['GET', 'POST'])
@@ -23,10 +31,12 @@ def add_flashcard():
     if request.method == 'POST':  # If the form is submitted
         question = request.form['question']
         answer = request.form['answer']
+        category = request.form['category']
         
         # Insert the new flashcard into the database
         conn = get_db_connection()
-        conn.execute('INSERT INTO flashcards (question, answer) VALUES (?, ?)', (question, answer))
+        conn.execute('INSERT INTO flashcards (question, answer, category) VALUES (?, ?, ?)', 
+                     (question, answer, category))
         conn.commit()
         conn.close()
 
@@ -69,6 +79,15 @@ def edit_flashcard(card_id):
 def delete_flashcard(card_id):
     conn = get_db_connection()
     conn.execute('delete from flashcards where id=?',(card_id,))
+    conn.commit()
+    conn.close()
+
+    return redirect(url_for('index'))
+
+@app.route('/delete_category/<category>', methods=['POST'])
+def delete_category(category):
+    conn = get_db_connection()
+    conn.execute('delete from flashcards where category =?',(category,))
     conn.commit()
     conn.close()
 

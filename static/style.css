@@ -22,3 +22,26 @@
     margin-top: 10px;
     color: #555;
 }
+
+
+/* put the edit and delete flashcard options in a flexbox to put them side by side */
+.flashcard-options{
+    display:flex;
+    align-items: center;
+    gap: 10px;
+}
+/* link for adding flashcard */
+.add-flashcard
+{
+    font-weight: bold;
+}
+.category-container
+{
+    display:flex;
+    align-items: center;
+    gap: 10px;
+}
+.delete-category
+{
+    font-weight: bold;
+}
