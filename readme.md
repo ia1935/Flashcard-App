@@ -68,3 +68,11 @@ Category:
 
 ![Edit Flashcard](./images/edit-flashcard.png)
 
+
+
+## Future Additions:
+- Adding bootstrapper for use across multiple screens and devices
+- Implementing Fuzzy Matching for category insertion if user wants to insert in a pre-existing category
+- Edit Flashcard should also allow for changing the category
+- Potential Visual Changes
+
