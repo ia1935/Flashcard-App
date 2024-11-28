@@ -23,6 +23,16 @@ Made with Python using Flask. Database done using SQLite, website made using HTM
 - Edit Flashcard: 
     - Allows user to alter existing flashcard's Question and Answer.
 
+## Usage
+
+- Must create table using flashcard_creation.py before running app.py
+- Required files:
+    - flashcard_creation.py (Must be run PRIOR to running app.py)
+    - app.py (Handles our backend work for the web app)
+    - templates folder (Webpages)
+    - static folder (CSS and Javascript for look and functionality)
+
+
 ---
 
 ## Files:
