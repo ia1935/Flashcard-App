@@ -28,6 +28,8 @@ Flashcards-App:
   |-- scripts.js (Javascript code implemented in our HTML)
   |-- style.css (Design for webpage)
 |-- readme.md (Project Documentation)
+|-- images (Website Images)
+
 ```
 
 
