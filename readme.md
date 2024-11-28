@@ -15,7 +15,7 @@ Made with Python using Flask. Database done using SQLite, website made using HTM
 ---
 
 ## Files:
-
+```
 Flashcards-App:
 |-- app.py (Main Application - Handles backend calls from frontend in order to alter our database)
 |-- flashcard_creation.py (Creating our table (flashcards.db))
@@ -28,6 +28,7 @@ Flashcards-App:
   |-- scripts.js (Javascript code implemented in our HTML)
   |-- style.css (Design for webpage)
 |-- readme.md (Project Documentation)
+```
 
 
 ## Web Application Images:
