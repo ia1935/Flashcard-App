@@ -12,6 +12,15 @@ Made with Python using Flask. Database done using SQLite, website made using HTM
 - Organize by Category
 - Delete Categories - Removes category, along with the flashcards that are in the specified category
 
+## Pages
+
+- Homepage:
+    - Allows for creation of flashcards and categories. Also allows for deletion and editing of existing flashcards. Sorts flashcards by category.
+- Add Flashcard:
+    - Prompts user to enter Category, Question, and Answer to create a new flashcard, can also make a new category.
+- Edit Flashcard: 
+    - Allows user to alter existing flashcard's Question and Answer.
+
 ---
 
 ## Files:
