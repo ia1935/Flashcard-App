@@ -17,13 +17,16 @@ def index():
     conn.close()
     #sorting by group (categories)
     categories ={}
+    counts = {} #keeping count of numbers of cards per category
     for card in flashcards:
         if card['category'] not in categories:
             categories[card['category']] = []
+            counts[card['category']]=0 #initializing counter
         categories[card['category']].append(card)
+        counts[card['category']]+=1
 
 
-    return render_template('index.html', categories=categories)
+    return render_template('index.html', categories=categories,counts=counts)
 
 # Route for adding a new flashcard
 @app.route('/add', methods=['GET', 'POST'])
@@ -75,7 +78,7 @@ def edit_flashcard(card_id):
     return render_template('edit_flashcard.html', flashcard=flashcard)
 
 
-@app.route('/delete/<int:card_id>')
+@app.route('/delete/<int:card_id>', methods=['POST'])
 def delete_flashcard(card_id):
     conn = get_db_connection()
     conn.execute('delete from flashcards where id=?',(card_id,))

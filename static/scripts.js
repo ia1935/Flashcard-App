@@ -9,6 +9,5 @@ function toggleAnswer(flashcardElement) {
 
 
 function deleteCategory(category) {
-    return confirm(`Are you sure you want to delete the category "
-        ${category}" and all its flashcards?`);
+    return confirm(`Are you sure you want to delete the category "${category}" and all its flashcards?`);
 }
