@@ -16,6 +16,8 @@ Made with Python using Flask. Database done using SQLite, website made using HTM
 
 - Homepage:
     - Allows for creation of flashcards and categories. Also allows for deletion and editing of existing flashcards. Sorts flashcards by category.
+    - Utilizes CSS to format flashcard information in a box to resemble a flashcard
+    - Utilizes Javascript for user confirmation for deleting categories and flashcards
 - Add Flashcard:
     - Prompts user to enter Category, Question, and Answer to create a new flashcard, can also make a new category.
 - Edit Flashcard: 
